@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home#index"
+  get "/", to: "users#show" "home#index"
 
   resources :reviews
   resources :skiareas
