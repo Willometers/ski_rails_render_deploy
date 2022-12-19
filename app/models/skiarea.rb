@@ -1,3 +1,3 @@
-class SkiArea < ApplicationRecord
+class Skiarea < ApplicationRecord
     has_many :reviews
 end
