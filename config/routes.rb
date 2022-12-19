@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/", to: "users#show" "home#index"
+
 
   resources :reviews
   resources :skiareas
@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   post "/savereview", to: "reviews#create"
   get "/allreviews", to: "reviews#index"
 
+  root "home#index"
 end
