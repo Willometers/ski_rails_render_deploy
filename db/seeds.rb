@@ -46,9 +46,6 @@ Skiarea.create(location: "12834", name: "Willard Mountain")
 Skiarea.create(location: "12496", name: "Windham Mountain")
 Skiarea.create(location: "13486", name: "Woods Valley Ski Area")
 
-User.create(email: "abc@abc.com")
-
-
 puts "done seeding"
 
 
