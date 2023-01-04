@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   post "/savereview", to: "reviews#create"
   get "/allreviews", to: "reviews#index"
 
+  get "/skiareas", to: "skiareas#index"
+
   root "home#index"
 end

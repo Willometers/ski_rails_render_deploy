@@ -48,3 +48,5 @@ Skiarea.create(location: "13486", name: "Woods Valley Ski Area")
 
 
 puts "done seeding"
+
+
