@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fallbacks
 
   resources :reviews
   resources :skiareas
