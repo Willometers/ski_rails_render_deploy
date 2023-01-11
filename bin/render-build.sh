@@ -2,10 +2,17 @@
 # exit on error
 set -o errexit
 
+# build commands for react front end
+rm -rf public
+npm install --prefix client && npm run build --prefix client
+cp -a client/build/. public/
+
+# build commands for rails back end
 bundle install
-bundle exec rake assets:precompile
-bundle exec rake assets:clean
-bundle exec rake db:migrate
+# bundle exec rake assets:precompile
+# bundle exec rake assets:clean
+bundle exec rails db:migrate
+bundle exec rails db:seed
 
 # are tables even being made?
 # seeding not happening at right phase?
