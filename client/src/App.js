@@ -1,18 +1,13 @@
 import './App.css';
+import SkiAreaDropdown from './components/SkiAreaDropdown';
+
 
 function App() {
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    fetch("/skiareas")
-    .then(res => res.json())
-    .then(res => console.log(res))
-  }
-
   return (
     <div className="App">
-      <h1>Hello</h1>
-      <button onClick={(handleSubmit)}>Show Ski</button>
+      <h1>New York Ski Areas:</h1>
+      <SkiAreaDropdown />
     </div>
   );
 }
