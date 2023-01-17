@@ -3,20 +3,21 @@ import { useNavigate } from "react-router-dom"
 
 const SkiAreaDropdown = ({handleArea}) => {
 
-    const [resorts, setResorts] = useState()
+    const [resorts, setResorts] = useState([])
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch("/skiareas")
+        fetch("http://localhost:3000/skiareas")
         .then(res => res.json())
         .then(res => setResorts(res))
       }, [])
 
-      const handleClick = (e) => {
+    const handleClick = (e) => {
         e.preventDefault()
         handleArea(e.target.value)
+        console.log("click", e.target.value)
         navigate("/show")
-      }
+    }
 
 if (!resorts)
     return (

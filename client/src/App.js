@@ -1,9 +1,8 @@
 import './App.css';
 import SkiAreaDropdown from './components/SkiAreaDropdown';
-import SkiAreaShow from './components/SkiAreaShow';
+import SkiAreaMapShow from './components/SkiAreaMapShow';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
-
 
 function App() {
 
@@ -29,7 +28,7 @@ function App() {
         <Route
           path="/show" 
           index 
-          element={<SkiAreaShow area={area}/>}
+          element={<SkiAreaMapShow area={area}/>}
         />
 
       </Routes>
