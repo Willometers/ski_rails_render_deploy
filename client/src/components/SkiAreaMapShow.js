@@ -2,7 +2,6 @@
 
 const SkiAreaMapShow = (area) => {
 
-
 // disabled API call for deployment
 //     const [weather, setWeather] = useState([])
 
@@ -11,7 +10,6 @@ const SkiAreaMapShow = (area) => {
 //     .then(res => res.json())
 //     .then(res => console.log(res))
 //  }, [])
-
 
     if (area.area)
         return (
