@@ -1,8 +1,10 @@
 import {useState, useEffect} from 'react'
+import { useNavigate } from "react-router-dom"
 
-function SkiAreaDropdown() {
+const SkiAreaDropdown = ({handleArea}) => {
 
     const [resorts, setResorts] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetch("/skiareas")
@@ -10,20 +12,29 @@ function SkiAreaDropdown() {
         .then(res => setResorts(res))
       }, [])
 
+      const handleClick = (e) => {
+        e.preventDefault()
+        handleArea(e.target.value)
+        navigate("/show")
+      }
+
 if (!resorts)
-      return (
+    return (
         <div>
             <h1>Loading</h1>
         </div>
-      )
-      else return (
+    )
+    else return (
         resorts.map((area, index) => {
-                return (
-                    <div>
-                        <li key={index}>{area.name}</li>
-                    </div>
-                )
-            })
-        )
+            return (
+                <div key={index}>
+                    <br/>
+                    <button onClick={handleClick} value={area.location}>{area.name}</button>
+                    <br/>
+                </div>
+            )
+        })
+    )
+
 }
   export default SkiAreaDropdown;
