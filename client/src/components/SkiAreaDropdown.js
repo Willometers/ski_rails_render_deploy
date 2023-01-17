@@ -7,7 +7,7 @@ const SkiAreaDropdown = ({handleArea}) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch("http://localhost:3000/skiareas")
+        fetch("/skiareas")
         .then(res => res.json())
         .then(res => setResorts(res))
       }, [])
