@@ -16,6 +16,7 @@ const SkiAreaDropdown = ({handleArea}) => {
         e.preventDefault()
         handleArea(e.target.value)
         console.log("click", e.target.value)
+        console.log(e.target.text)
         navigate("/show")
     }
 

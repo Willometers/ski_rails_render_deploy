@@ -1,12 +1,23 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SkiAreaDropdown from './components/SkiAreaDropdown';
+import NavBar from './components/NavBar';
 import SkiAreaMapShow from './components/SkiAreaMapShow';
+import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
 
   const [area, setArea] = useState([])
+  const [user, setUser] = useState([])
+
+  useEffect(() => { 
+    fetch("/me")
+    .then((res) => res.json())
+    .then((res) => setUser(res))
+    }, []
+  )
 
   const handleArea = (props) => {
     setArea(props)
@@ -16,7 +27,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>New York Ski Areas:</h1>
+     <NavBar />
+      <br/>
       <Routes>
 
         <Route
@@ -30,6 +42,12 @@ function App() {
           index 
           element={<SkiAreaMapShow area={area}/>}
         />
+
+        <Route
+          path="/login" 
+          index 
+          element={<Login />}
+        />  
 
       </Routes>
       </div>

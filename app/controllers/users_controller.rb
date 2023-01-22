@@ -3,7 +3,7 @@ class UsersController < ApplicationController
      # "/signup" if no "/me" present show login/signup component
      def create
         user = User.create(user_params)
-        # byebug
+        
         if user.valid?
             session[:user_id] = user.id 
             render json: user, status: :created
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     def index
         users = User.all
+        # debugger
         render json: users, include: :reviews
     end
 
