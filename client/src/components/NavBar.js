@@ -13,7 +13,7 @@ function NavBar() {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        navigate("/login")
+        navigate("/loginpage")
     }
 
     return (

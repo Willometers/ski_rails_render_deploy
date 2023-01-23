@@ -44,9 +44,9 @@ function App() {
         />
 
         <Route
-          path="/login" 
+          path="/loginpage" 
           index 
-          element={<Login />}
+          element={<Login user={user} />}
         />  
 
       </Routes>
