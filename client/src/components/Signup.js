@@ -43,6 +43,11 @@ function Signup() {
                 if (res.ok) {
                     res.json().then(navigate("/"))
                     console.log("signed up", res)
+                    navigate("/")
+                } else {
+                    res.json().then((res) => setError(res))
+                    console.log("errors", res.status, res.statusText)
+                    
                 }
             }) 
         } else {
@@ -50,8 +55,8 @@ function Signup() {
             console.log(errorMessage)
         }
     }
-console.log("error",error)
-        return (
+
+    return (
             <div >
             <form onSubmit={handleSubmit} >
                 <input placeholder="Email" 

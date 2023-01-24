@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+// import { useNavigate } from 'react-router-dom';
 // import { addErrors } from "../store/actions/weatherActions"
 import Signup from "./Signup";
 
@@ -27,21 +28,21 @@ const Login = (user) => {
           })
           .then((res) => {
               res.json().then((user) => console.log(user));
+              navigate("/")
           }) 
     }
 
     return (
         <div>
         <div >
-                <form onSubmit={handleSubmit} >
-                    <input placeholder="Email" 
-                        onChange={handleEmail}/>
-                    <input type="password" placeholder="Password" 
-                        onChange={handlePassword}/>
-                    <button>Login</button>
-                    
-                </form>
-                <div> {error.statusText ? <h6 style={{color: "red"}}>Email or Password Incorrect</h6> : <h1></h1>}</div>
+            <form onSubmit={handleSubmit} >
+                <input placeholder="Email" 
+                    onChange={handleEmail}/>
+                <input type="password" placeholder="Password" 
+                    onChange={handlePassword}/>
+                <button>Login</button>
+            </form>
+        <div> {error.statusText ? <h6 style={{color: "red"}}>Email or Password Incorrect</h6> : <h1></h1>}</div>
         <br/>
         <h4>OR</h4>
         <br/>

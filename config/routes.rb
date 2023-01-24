@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "/allreviews", to: "reviews#index"
 
   get "/skiareas", to: "skiareas#index"
+  get "/skiareas/:id", to: "skiareas#show"
 
   root "home#index"
 

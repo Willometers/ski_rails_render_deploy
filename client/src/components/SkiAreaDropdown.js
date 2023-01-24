@@ -12,12 +12,14 @@ const SkiAreaDropdown = ({handleArea}) => {
         .then(res => setResorts(res))
       }, [])
 
+    //   use area.id to set the skiarea object as a prop
     const handleClick = (e) => {
         e.preventDefault()
-        handleArea(e.target.value)
-        console.log("click", e.target.value)
-        console.log(e.target.text)
-        navigate("/show")
+        let resort = e.target.value
+        fetch(`/skiareas/${resort}`)
+        .then((res) => res.json())
+        .then(res => handleArea(res))
+        .then(navigate("/show"))
     }
 
 if (!resorts)
@@ -31,7 +33,7 @@ if (!resorts)
             return (
                 <div key={index}>
                     <br/>
-                    <button onClick={handleClick} value={area.location}>{area.name}</button>
+                    <button onClick={handleClick} value={area.id}>{area.name}</button>
                     <br/>
                 </div>
             )

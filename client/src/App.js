@@ -9,25 +9,26 @@ import { useState, useEffect } from 'react'
 
 function App() {
 
-  const [area, setArea] = useState([])
+  const [area, setArea] = useState()
+  // area set as area.id 
   const [user, setUser] = useState([])
+  // user found with /me route
 
   useEffect(() => { 
     fetch("/me")
     .then((res) => res.json())
     .then((res) => setUser(res))
-    }, []
-  )
+    .then(console.log(user))
+    }, [])
 
   const handleArea = (props) => {
     setArea(props)
-    console.log("h", props)
   }
 
   return (
     <Router>
       <div className="App">
-     <NavBar />
+     <NavBar user={user}/>
       <br/>
       <Routes>
 
