@@ -1,4 +1,5 @@
 // import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import RateComponent from "./RateComponent";
 
 const SkiAreaMapShow = (area) => {
@@ -11,6 +12,8 @@ const SkiAreaMapShow = (area) => {
 //     .then(res => res.json())
 //     .then(res => console.log(res))
 //  }, [])
+
+const navigate =  useNavigate()
 
     if (area.area)
         return (
@@ -26,9 +29,7 @@ const SkiAreaMapShow = (area) => {
             </div>
             )
         else
-        return (
-            <div>Loading</div>
-            )
+        navigate('/')
 
 }
 

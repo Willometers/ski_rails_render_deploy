@@ -25,7 +25,7 @@ const SkiAreaDropdown = ({handleArea}) => {
 if (!resorts)
     return (
         <div>
-            <h1>Loading</h1>
+            <h1>No Ski Area Selected</h1>
         </div>
     )
     else return (
