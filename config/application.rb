@@ -14,6 +14,8 @@ require "action_mailer/railtie"
 require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
+# change based on deployt error   Did you mean?  ActionMailer
+require "action_cable/engine"
 
 #new
 
