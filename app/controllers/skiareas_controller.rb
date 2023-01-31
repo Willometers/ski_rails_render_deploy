@@ -8,6 +8,5 @@ class SkiareasController < ApplicationController
         render json: Skiarea.find(params[:id]), include: :reviews
     end
     
-
 end
 

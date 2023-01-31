@@ -1,12 +1,11 @@
-// import { Rating } from '@mui/material';
 
 const ReviewShow = (review) => {
     
     // maybe this data should be pulled at a higher level, made into state and passed down
     const showUserID = () => {
-        fetch("https://rails-2n88.onrender.com/users")
+        fetch("/users")
         .then((res) => res.json())
-        // .then(res => res.forEach(user => console.log("hi billy", user.email)))
+        .then(res => res.forEach(user => console.log("hi billy", user.email)))
     }
 
     showUserID()

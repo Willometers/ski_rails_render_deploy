@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-    belongs_to :ski_area
+    belongs_to :skiarea
     belongs_to :user
 
     validates :comments, presence: true

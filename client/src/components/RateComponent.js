@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 // import { Rating } from 'react-simple-star-rating'
 // import { useSelector } from 'react-redux'
 // import { useDispatch } from 'react-redux'
-// import ReviewsContainer from './ReviewsContainer'
+import ReviewsContainer from './ReviewsContainer'
 
 const RateComponent = (resort) => {
+
+    const [user, setUser] = useState([])
 
     useEffect(() => { 
         fetch("/me")
@@ -14,11 +15,10 @@ const RateComponent = (resort) => {
         }, []
       )
 
-    console.log("rateComponent", resort.area.area)
+    console.log("rateComponent", resort.area.area.id)
 
     // I think i need to change state at a higher level to trigger the change upon comment submission
     // const user_info = useSelector(state => state.location)
-    const [user, setUser] = useState([])
     const [rating, setRating] = useState(0)
     const [review, setReview] = useState("")
     // const dispatch = useDispatch()
@@ -32,13 +32,13 @@ const RateComponent = (resort) => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         // let user = user_info[0].id
         // console.log("comment submitted", user_info[0].email)
         let userEmail = user.email
-        let ski_area_id = resort.resort.id
+        let skiarea_id = resort.area.area.id
         let stars = rating
         let comments = review
-        e.preventDefault()
         e.target.reset()
         fetch("/savereview", {
             method: 'POST',
@@ -46,9 +46,9 @@ const RateComponent = (resort) => {
                 'Content-Type' : 'application/json',
             },
             body: JSON.stringify({
-                user_id: user,
+                user_id: user.id,
                 email: userEmail,
-                ski_area_id: ski_area_id,
+                skiarea_id: skiarea_id,
                 rating: stars,
                 comments: comments
             })
@@ -82,10 +82,10 @@ const RateComponent = (resort) => {
                 /> */}
                 <br/>
                 <br/>
-            {/* {user_info[0].error ? <div><h8>Log in or Sign up to Leave Review</h8><br/><br/><button disabled >Submit</button></div> : <button>Submit</button>  } */}
+            {user.error ? <div><h8>Log in or Sign up to Leave Review</h8><br/><br/><button disabled >Submit</button></div> : <button>Submit</button>  }
             </form >
                 <br/>
-                {/* <ReviewsContainer resort={resort.resort}/> */}
+                <ReviewsContainer resort={resort.resort}/>
         </div>
     )
 }
