@@ -1,11 +1,11 @@
 import React from "react"
 import { Button } from "react-bootstrap"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 const LogoutButton = (user) => {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const [errors, setErrors] = useState([])
 
     const handleSubmit = () => {
@@ -18,12 +18,12 @@ const LogoutButton = (user) => {
         }).then((res) => {
             if (res.ok) {
                 console.log("loggedout")
-                // navigate("/")
+                navigate("/")
             } else {
                 res.json().then((res) => setErrors(res))
                 console.log("error logout", res.status, res.statusText)
             }
-        })
+        }, [])
     }
 
         return (

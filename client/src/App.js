@@ -18,7 +18,7 @@ function App() {
     fetch("/me")
     .then((res) => res.json())
     .then((res) => setUser(res))
-    .then(console.log(user))
+    .then(console.log("App user", user))
     }, [])
 
   const handleArea = (props) => {
@@ -47,7 +47,7 @@ function App() {
         <Route
           path="/loginpage" 
           index 
-          element={<Login user={user} />}
+          element={<Login/>}
         />  
 
       </Routes>

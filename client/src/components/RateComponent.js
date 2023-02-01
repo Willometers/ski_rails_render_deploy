@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react'
 // import { useSelector } from 'react-redux'
 // import { useDispatch } from 'react-redux'
 import ReviewsContainer from './ReviewsContainer'
+import LogoutButton from './LogoutButton'
+import LoginButton from './LoginButton'
+
 
 const RateComponent = (resort) => {
 
@@ -67,10 +70,10 @@ const RateComponent = (resort) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-            <label>Review:</label>
-                <br/>
+            <label>{ user.error ? `Login/Signup to leave a review` : `Leave a review, ${user.email}` }:</label>
+            <br/>
+            <br/>
             <textarea onChange={handleChange} />
-                <br/>
             {/* < Rating
                 onClick={handleRating}
                 size={20}
@@ -81,11 +84,11 @@ const RateComponent = (resort) => {
                 className='foo' // Will remove the inline style if applied
                 /> */}
                 <br/>
-                <br/>
-            {user.error ? <div><h8>Log in or Sign up to Leave Review</h8><br/><br/><button disabled >Submit</button></div> : <button>Submit</button>  }
+            {user.error ? <div><LoginButton resort={resort.area.area.id}/></div> : <button> Submit </button>  }
             </form >
                 <br/>
                 <ReviewsContainer resort={resort.resort}/>
+            {user.error ? null : <LogoutButton />}
         </div>
     )
 }
