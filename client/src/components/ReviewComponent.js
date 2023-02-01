@@ -4,23 +4,24 @@ import React, { useState } from 'react'
 // import { useDispatch } from 'react-redux'
 import ReviewsContainer from './ReviewsContainer'
 
-
 const RateComponent = (resort) => {
 
     // I think i need to change state at a higher level to trigger the change upon comment submission
     // const user_info = useSelector(state => state.location)
-    const [rating, setRating] = useState(0)
+    // const [rating, setRating] = useState(0)
     const [review, setReview] = useState("")
     // const dispatch = useDispatch()
-    const [user_info, setUser_info] = useState([])
+    // const [user_info, setUser_info] = useState([])
 
-    const handleRating = (e) => {
-        setRating(e)
-    }
+    // const handleRating = (e) => {
+    //     setRating(e)
+    // }
 
     const handleChange = (e) => {
         setReview(e.target.value)
     }
+
+    console.log("RevComp", resort)
 
     const handleSubmit = (e) => {
         let user = user_info[0].id

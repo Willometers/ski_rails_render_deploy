@@ -2,13 +2,15 @@
 const ReviewShow = (review) => {
     
     // maybe this data should be pulled at a higher level, made into state and passed down
-    const showUserID = () => {
-        fetch("/users")
-        .then((res) => res.json())
-        .then(res => res.forEach(user => console.log("hi billy", user.email)))
-    }
+    // const showUserID = () => {
+    //     fetch("/users")
+    //     .then((res) => res.json())
+    //     .then(res => res.forEach(user => console.log("hi billy", user.email)))
+    // }
 
-    showUserID()
+    // showUserID()
+
+    console.log("RevShow",review)
 
     const stars = review.review.rating*.1/2
 

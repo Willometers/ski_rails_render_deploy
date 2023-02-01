@@ -87,7 +87,7 @@ const RateComponent = (resort) => {
             {user.error ? <div><LoginButton resort={resort.area.area.id}/></div> : <button> Submit </button>  }
             </form >
                 <br/>
-                <ReviewsContainer resort={resort.resort}/>
+                <ReviewsContainer resort={resort}/>
             {user.error ? null : <LogoutButton />}
         </div>
     )
