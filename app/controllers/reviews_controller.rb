@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
     def create
-        # byebug
+        # debugger
         post = Review.create(reviews_params)
         render json: post
     end
@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     private 
 
     def reviews_params
-        params.permit(:user_id, :email, :skiarea_id, :comments, :rating)
+        params.permit(:user_id, :email, :skiarea_id, :comments)
     end
 
 end

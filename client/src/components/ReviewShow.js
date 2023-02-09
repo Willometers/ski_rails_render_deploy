@@ -10,7 +10,7 @@ const ReviewShow = (review) => {
 
     // showUserID()
 
-    console.log("RevShow",review)
+    // console.log("RevShow",review)
 
     const stars = review.review.rating*.1/2
 

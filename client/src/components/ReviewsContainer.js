@@ -1,25 +1,27 @@
+import { useEffect, useState } from "react"
 import ReviewShow from "./ReviewShow"
 
 const ReviewsContainer = (resort) => {
 
+    const [reviews, setReviews] = useState([])
 
+    useEffect(() => { 
+        fetch(`/skiareas/${resort.resort.area.area.id}`)
+        .then((res) => res.json())
+        .then((res) => setReviews(res.reviews))
+    }, [])
 
-    let resort_reviews = resort.resort.area.area.reviews
-
-    console.log("RC_id", resort_reviews.length)
-
-
-    if(resort_reviews.length < 1)
+    if(reviews.length < 1)
         return (
             <div>Be the First to Leave a Review</div>
         )
     else
         return(
             <div>
-                {resort_reviews.map((review) =>  
+                {reviews.map((review) =>  
                     <ReviewShow review={review}/>)}
             </div>
-        )
+    )
 }
 
 export default ReviewsContainer
