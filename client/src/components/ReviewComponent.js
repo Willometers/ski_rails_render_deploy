@@ -9,7 +9,7 @@ const RateComponent = (resort) => {
         setReview(e.target.value)
     }
 
-    console.log("RevComp", resort)
+    // console.log("RevComp", resort)
 
     const handleSubmit = (e) => {
         let user = user_info[0].id
