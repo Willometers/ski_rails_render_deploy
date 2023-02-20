@@ -29,7 +29,9 @@ if (!resorts)
         </div>
     )
     else return (
-        resorts.map((area, index) => {
+        <div>
+            <h1>New York State Ski Areas</h1>
+            {resorts.map((area, index) => {
             return (
                 <div key={index}>
                     <br/>
@@ -37,7 +39,9 @@ if (!resorts)
                     <br/>
                 </div>
             )
-        })
+       
+            })}
+         </div>
     )
 
 }
