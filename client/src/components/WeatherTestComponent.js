@@ -12,7 +12,7 @@ const WeatherTestComponent = () => {
 
     const [weather, setWeather] = useState([])
 
-    if(weather.length > 1 )
+    // if(weather.length > 1 )
         console.log(weather)
 
     return (
