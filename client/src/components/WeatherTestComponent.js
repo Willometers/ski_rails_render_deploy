@@ -26,7 +26,7 @@ const WeatherTestComponent = (area) => {
     if(weather.length < 1)
         return (
         <div>
-            No Weather!
+            Loading...
         </div>
     )
     else return (

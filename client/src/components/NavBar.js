@@ -1,8 +1,5 @@
 import { useNavigate } from "react-router-dom"
 import { Navbar, Nav, Container, Button } from 'react-bootstrap'
-import LogoutButton from "./LogoutButton"
-import LoginButton from "./LoginButton"
-
 
 const  NavBar = (user) => {
 

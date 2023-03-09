@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-
+import WeatherCard from "./WeatherCard"
+import CardGroup from 'react-bootstrap/CardGroup';
 const WeatherShow = (location) => {
 
     let forecastURL = (location.weather.properties.forecast)
@@ -11,14 +12,28 @@ const WeatherShow = (location) => {
         .then(res => setForecast(res))
     }, [])    
 
-    console.log("WS", forecast)
 
-    return (
+    if(forecast.properties)
+    return(
+        
         <div>
-            Hi
+            <CardGroup >
+            {forecast.properties.periods.map((period) => {
+                return (
+                    <div>
+                        <WeatherCard period={period} />
+                    </div>
+                    )
+                })
+            }
+            </CardGroup>
         </div>
     )
-
+    else return (
+        <div>
+            Loading...
+        </div>
+    )
 
 }
 
