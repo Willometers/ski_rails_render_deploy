@@ -1,38 +1,39 @@
 import { useEffect, useState } from "react"
+import WeatherShow from "./WeatherShow"
 
-const API = "https://api.weather.gov/gridpoints/LWX/97,71/forecast"
+const WeatherTestComponent = (area) => {
 
-const WeatherTestComponent = () => {
+    console.log(area.area.area.lat)
 
-    useEffect(() => { 
+    const API = `https://api.weather.gov/points/${area.area.area.lat},-${area.area.area.lon}`
+
+    const [weather, setWeather] = useState([])
+
+    useEffect(() => {
         fetch(API)
         .then(res => res.json())
         .then(res => setWeather(res))
     }, [])
 
-    const [weather, setWeather] = useState([])
-
-    // console.log(weather.properties.periods)
-
+    // useEffect(() => { 
+    //     fetch(weather.properties.forecast)
+    //     .then(res => res.json())
+    //     .then(res => setForecast(res))
+    // }, [])
+    // render this in new component bc has to double fetch 
+    
+    
     if(weather.length < 1)
         return (
-            <div>
-                No Weather!
-            </div>
-        )
-    else return (
         <div>
-        {weather.properties.periods.map((day, index) => {
-            return (
-                <div key={index}>
-                    {day.detailedForecast }
-                </div>
-            )
-       
-            })}
+            No Weather!
         </div>
     )
-
+    else return (
+        <div>
+            <WeatherShow weather={weather}/>
+        </div>
+    )
 }
 
 export default WeatherTestComponent

@@ -6,7 +6,6 @@ import SkiAreaMapShow from './components/SkiAreaMapShow';
 import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import WeatherTestComponent from './components/WeatherTestComponent';
 
 function App() {
 
@@ -28,7 +27,6 @@ function App() {
 
   return (
     <Router>
-      <WeatherTestComponent />
       <div className="App">
      <NavBar user={user}/>
       <br/>
