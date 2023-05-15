@@ -19,10 +19,14 @@ const SkiAreaMapShow = (area) => {
                     <WeatherTestComponent area={area}/>
                 </div>
                 <RateComponent area={area}/>
+                
             </div>
             )
         else
-        navigate('/')
+        return (
+            <div>LOADING</div>
+        )
+        // navigate('/')
 
 }
 

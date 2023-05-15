@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 const SkiAreaDropdown = ({handleArea}) => {
 
     const [resorts, setResorts] = useState([])
+    console.log(resorts)
     const navigate = useNavigate()
 
     useEffect(() => {
